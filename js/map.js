@@ -15,13 +15,6 @@
 
     //#region Add markers to the map
 
-    // Marker sizes are expressed as a Size of X,Y
-    // where the origin of the image (0,0) is located
-    // in the top left of the image.
-
-    // Origins, anchor positions and coordinates of the marker
-    // increase in the X direction to the right and in
-    // the Y direction down.
     var image = {
         url: 'images/alerticon.png',
         scaledSize: new google.maps.Size(20, 18),
@@ -33,6 +26,7 @@
 
     var OBAProblemReport = Parse.Object.extend("OBAProblemReport");
     var query = new Parse.Query(OBAProblemReport);
+    //get reports created in last hour
     query.greaterThan("createdAt", moment().subtract(1, 'hour').format());
     query.find({
         success: function (results) {
