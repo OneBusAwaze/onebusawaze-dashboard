@@ -33,23 +33,23 @@ var busIssuesLast20Days = [
 
 var styles = [
   {
-    stylers: [
-      { hue: "#66ffff" },
-      { saturation: -20 }
-    ]
-  },{
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [
-      { lightness: 100 },
-      { visibility: "simplified" }
-    ]
-  },{
-    featureType: "road",
-    elementType: "labels",
-    stylers: [
-      { visibility: "off" }
-    ]
+      stylers: [
+        { hue: "#66ffff" },
+        { saturation: -20 }
+      ]
+  }, {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+  }, {
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
   }
 ];
 
