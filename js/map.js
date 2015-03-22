@@ -27,10 +27,6 @@ function initialize() {
     //['512', 47.821575, -122.278228, 1]
     //];
 
-    setMarkers(map, transitTrouble);
-}
-
-function setMarkers(map, locations) {
     // Add markers to the map
 
     // Marker sizes are expressed as a Size of X,Y
@@ -58,18 +54,32 @@ function setMarkers(map, locations) {
         coords: [1, 1, 1, 20, 18, 20, 18, 1],
         type: 'poly'
     };
-    for (var i = 0; i < locations.length; i++) {
-        var trouble = locations[i];
-        var myLatLng = new google.maps.LatLng(trouble[1], trouble[2]);
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            icon: image,
-            shape: shape,
-            title: trouble[0],
-            zIndex: trouble[3]
-        });
-    }
+
+    Parse.initialize("fJs3oUmiiROLCIwRUdR0zpO9YnmGJ8P5frsYStku", "gKKi8PO3xBbKM9garOk9frovdWr5dASF7lJgtvln");
+
+    var OBAProblemReport = Parse.Object.extend("OBAProblemReport");
+    var query = new Parse.Query(OBAProblemReport);
+    //query.equalTo("playerName", "Dan Stemkoski");
+    //query.equalTo("location", "*");
+    query.find({
+        success: function (results) {
+            console.log("# of reports: " + results.length);
+
+            for (var i = 0; i < results.length; i++) {
+                var trouble = results[i];
+                var myLatLng = new google.maps.LatLng(trouble.attributes.location._latitude, trouble.attributes.location._longitude);
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    icon: image,
+                    shape: shape
+                });
+            }
+        },
+        error: function (error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
