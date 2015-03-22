@@ -1,15 +1,9 @@
-﻿// The following example creates complex markers to indicate troublees near
-// Sydney, NSW, Australia. Note that the anchor is set to
-// (0,32) to correspond to the base of the flagpole.
-
-function initialize() {
+﻿function initialize() {
     var mapOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(47.643770, -122.325606)
+        zoom: 11,
+        center: new google.maps.LatLng(47.609536, -122.335193)
     }
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-                                  mapOptions);
-    map.setOptions({ styles: styles });
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
     //add transit layer
     var transitLayer = new google.maps.TransitLayer();
@@ -19,15 +13,7 @@ function initialize() {
     var trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
 
-    //var transitTrouble = [
-    //['5', 47.662271, -122.348265, 4],
-    //['297', 47.643307, -122.204757, 5],
-    //['72', 47.655796, -122.319426, 3],
-    //['512', 47.784952, -122.316653, 2],
-    //['512', 47.821575, -122.278228, 1]
-    //];
-
-    // Add markers to the map
+    //#region Add markers to the map
 
     // Marker sizes are expressed as a Size of X,Y
     // where the origin of the image (0,0) is located
@@ -80,6 +66,8 @@ function initialize() {
             alert("Error: " + error.code + " " + error.message);
         }
     });
+
+    //#endregion
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
