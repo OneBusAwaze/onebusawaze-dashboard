@@ -36,7 +36,7 @@
     query.greaterThan("createdAt", moment().subtract(1, 'hour').format());
     query.find({
         success: function (results) {
-            console.log("# of reports: " + results.length);
+            //console.log("# of reports: " + results.length);
 
             for (var i = 0; i < results.length; i++) {
                 var trouble = results[i];
@@ -50,7 +50,7 @@
             }
         },
         error: function (error) {
-            alert("Error: " + error.code + " " + error.message);
+            //alert("Error: " + error.code + " " + error.message);
         }
     });
 
