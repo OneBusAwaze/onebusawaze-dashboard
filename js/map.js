@@ -45,8 +45,7 @@
 
     var OBAProblemReport = Parse.Object.extend("OBAProblemReport");
     var query = new Parse.Query(OBAProblemReport);
-    //query.equalTo("playerName", "Dan Stemkoski");
-    //query.equalTo("location", "*");
+    query.greaterThan("createdAt", moment().subtract(1, 'hour').format());
     query.find({
         success: function (results) {
             console.log("# of reports: " + results.length);
