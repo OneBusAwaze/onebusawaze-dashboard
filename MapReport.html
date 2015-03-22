@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<style type="text/css" class="init">
+<style>
+<!--
+.MsoChpDefault {
+	font-family: "Calibri", sans-serif;
+}
+.MsoPapDefault {
+	line-height: 107%;
+}
+-->
+</style>
+      <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
+       
+     <script src="./TransitTrouble.js"></script>     
+
+
+</head>
+
+<body lang=EN-US>
+<div>
+  <p>OneBusAways Service Status Dashboard</p>
+  <table id="mainTable" border=0 align="center" cellpadding=0 cellspacing=0>
+    <tr>
+      <td width=400 valign=top><table border=1 align="center" cellpadding=0 cellspacing=0>
+        <tr>
+          
+        </tr>
+      </table>
+        <p>Current Issues </p>
+        <p><br>
+          
+        </p>
+        <table id="TransitTroubleTable" cellpadding="0" cellspacing="0" border="0" class="display">
+          <thead>
+    <tr><th class="site_name">Bus</th><th>Issue </th><th>Time Reported</th></tr>
+
+    </thead>
+    <tbody>
+      <tr><td>Loading</td></tr>
+    </tbody>
+</table>
+  <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+  <script>
+$("#TransitTroubleTable").dataTable({
+  "aaData":busIssuesReported  
+});  </script>
+
+        </td>
+      <td width=512 valign=top><p style='line-height:
+  normal'><iframe height="600px" width="100%" frameborder="0" scrolling="no" src="./map.html"> </iframe></p></td>
+      
+    </tr>
+  </table>
+
+  <table id="mainTable" border=0 align="center" cellpadding=0 cellspacing=0>
+    <tr>
+      <td width=912 valign=top>
+       <hr width="100%" style="border: 0px currentColor; border-image: none; height: 3px;  background-color: rgb(204, 204, 204);">
+       <p>Summary of Last 30 days</p>
+       <p><br>
+       </p>
+       <table id="TransitTroubleLast30" cellpadding="0" cellspacing="0" border="0" class="display">
+         <thead>
+    <tr><th class="site_name">Bus</th><th>Issue </th>
+    <th>Number of Incidents</th></tr>
+
+    </thead>
+    <tbody>
+      <tr><td>Loading</td></tr>
+    </tbody>
+</table>
+  <script>
+$("#TransitTroubleLast30").dataTable({
+  "aaData":busIssuesLast20Days  
+});  </script>
+
+
+      </td>
+    </tr>
+  </table>
+
+  <hr width="100%" style="border: 0px currentColor; border-image: none; height: 3px;  background-color: rgb(204, 204, 204);">
+  <br>
+
+</div>
+</body>
+</html>
