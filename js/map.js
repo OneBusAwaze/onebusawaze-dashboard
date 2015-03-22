@@ -43,7 +43,7 @@ function initialize() {
         // The origin for this image is 0,0.
         origin: new google.maps.Point(0, 0),
         // The anchor for this image is the base of the flagpole at 0,32.
-        anchor: new google.maps.Point(0, 32)
+        anchor: new google.maps.Point(10, 16)
     };
     // Shapes define the clickable region of the icon.
     // The type defines an HTML &lt;area&gt; element 'poly' which
